@@ -12,9 +12,9 @@
             --secondary: #d4af37;
             --bg-color: #fdfaf6;
             --text-main: #333333;
-            --text-light: #666666;
+            --text-light: #555555;
             --white: #ffffff;
-            --alert-red: #ff0000;
+            --alert-red: #cc0000;
         }
 
         /* --- Global Styles --- */
@@ -23,17 +23,18 @@
             font-family: 'Poppins', 'Noto Sans Malayalam', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
-            line-height: 1.6;
+            line-height: 1.7;
             font-size: 18px;
         }
         img { max-width: 100%; height: auto; border-radius: 8px; }
         a { text-decoration: none; color: inherit; }
 
         /* --- Typography --- */
-        h1, h2, h3 { color: var(--primary); margin-bottom: 10px; }
+        h1, h2, h3, h4 { color: var(--primary); margin-bottom: 10px; }
         .ml-text { font-family: 'Noto Sans Malayalam', sans-serif; color: var(--primary); font-size: 0.95em; margin-top: 5px; }
         .bilingual-title { text-align: center; margin-bottom: 40px; }
-        .bilingual-title h2 { font-size: 2rem; margin-bottom: 5px; }
+        .bilingual-title h2 { font-size: 2.2rem; margin-bottom: 5px; }
+        .bilingual-title .ml-text { font-size: 1.5rem; color: var(--text-light); }
 
         /* --- Navigation --- */
         header {
@@ -54,19 +55,22 @@
         }
         .logo { font-weight: 600; font-size: 1.2rem; color: var(--secondary); }
         .nav-links { display: flex; gap: 20px; }
-        .nav-links a { color: var(--white); font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a { color: var(--white); font-size: 0.95rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--secondary); }
         .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--secondary); }
 
         /* --- Hero Section --- */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('photo1.jpg') center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('photo1.jpg') center/cover;
             color: var(--white);
             text-align: center;
-            padding: 120px 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            padding: 100px 20px;
         }
-        .hero h1 { color: var(--secondary); font-size: 2.8rem; margin-bottom: 20px; }
+        .hero h1 { color: var(--secondary); font-size: 2.8rem; margin-bottom: 10px; text-shadow: none; }
+        .hero .ml-title { font-size: 1.8rem; margin-bottom: 20px; color: #fff; font-weight: 600; }
+        .hero .motto { font-size: 1.2rem; font-style: italic; max-width: 900px; margin: 0 auto 15px auto; line-height: 1.5; color: #fff; }
+        .hero .motto-ml { font-size: 1.1rem; max-width: 900px; margin: 0 auto 25px auto; color: #f0e6d2; font-weight: 400; }
+        
         .hero-btn {
             display: inline-block;
             background-color: var(--secondary);
@@ -74,11 +78,10 @@
             padding: 14px 35px;
             border-radius: 40px;
             font-weight: 600;
-            margin-top: 20px;
-            transition: transform 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+            border: 2px solid transparent;
         }
-        .hero-btn:hover { transform: scale(1.05); background-color: #e5c158; }
+        .hero-btn:hover { transform: scale(1.03); background-color: #e5c158; }
 
         /* --- Scrolling Message --- */
         .scrolling-container {
@@ -108,19 +111,31 @@
         @keyframes blinker { 50% { opacity: 0; } }
 
         /* --- Layout & Sections --- */
-        section { padding: 60px 20px; max-width: 1200px; margin: auto; }
-        section:nth-child(even) { background-color: var(--white); border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        section { padding: 70px 20px; max-width: 1200px; margin: auto; }
+        section:nth-child(even) { background-color: var(--white); border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
         
-        .grid { display: grid; gap: 20px; }
-        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .grid { display: grid; gap: 30px; }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); }
+
+        /* --- Cards --- */
+        .card {
+            background: var(--white);
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+            transition: transform 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
 
         /* --- Timeline (Road Map) --- */
         .timeline { position: relative; max-width: 800px; margin: 0 auto; }
         .timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--secondary); top: 0; bottom: 0; left: 20px; margin-left: -2px; }
-        .timeline-item { padding: 10px 40px; position: relative; width: 100%; margin-bottom: 20px; }
+        .timeline-item { padding: 10px 40px 10px 50px; position: relative; width: 100%; margin-bottom: 25px; }
         .timeline-item::after { content: ''; position: absolute; width: 20px; height: 20px; left: 10px; background-color: var(--primary); border: 4px solid var(--secondary); top: 15px; border-radius: 50%; z-index: 1; }
-        .timeline-content { padding: 20px; background: var(--white); border-radius: 8px; box-shadow: 0 3px 6px rgba(0,0,0,0.05); border-left: 5px solid var(--primary); }
+        .timeline-content { padding: 25px; background: var(--white); border-radius: 8px; box-shadow: 0 3px 8px rgba(0,0,0,0.05); border-left: 5px solid var(--primary); }
 
         /* --- Buttons --- */
         .btn-pdf {
@@ -137,17 +152,18 @@
         }
         .btn-pdf:hover { background-color: var(--secondary); color: var(--primary); }
 
-        /* --- Bank Details Box --- */
+        /* --- Bank Box --- */
         .bank-box {
             max-width: 600px;
             margin: 40px auto;
-            padding: 30px;
+            padding: 40px;
             background: #fff;
             border: 2px dashed var(--secondary);
             border-radius: 15px;
             text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
-        .bank-detail-item { font-family: monospace; font-size: 1.1rem; color: #333; font-weight: bold; }
+        .bank-detail-item { font-family: monospace; font-size: 1.2rem; color: #333; font-weight: bold; }
 
         /* --- Gallery --- */
         #gallery img {
@@ -159,14 +175,19 @@
             border-radius: 8px;
         }
 
+        /* --- Responsive --- */
         @media (max-width: 768px) {
             .nav-links {
                 display: none; flex-direction: column; width: 100%; position: absolute;
                 top: 60px; left: 0; background-color: var(--primary); padding: 10px 0; text-align: center;
             }
             .nav-links.active { display: flex; }
+            .nav-links a { padding: 10px; display: block; }
             .menu-toggle { display: block; }
             .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero .ml-title { font-size: 1.4rem; }
+            .bilingual-title h2 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -178,9 +199,11 @@
             <div class="menu-toggle" onclick="toggleMenu()">☰</div>
             <nav class="nav-links" id="navLinks">
                 <a href="#home">Home</a>
+                <a href="#about">About</a>
                 <a href="#committee">Committee</a>
                 <a href="#members">Members</a>
                 <a href="#roadmap">Road Map</a>
+                <a href="#minutes">Minutes</a>
                 <a href="#bank">Contribution</a>
                 <a href="#gallery">Gallery</a>
             </nav>
@@ -188,8 +211,12 @@
     </header>
 
     <section id="home" class="hero">
-        <h1>Nostalgia 76-77 | SSLC Batch</h1>
-        <div class="ml-title" style="font-size: 1.8rem; color: #f0e6d2;">എസ്.എസ്.എൽ.സി ബാച്ച് SKMJ High School</div>
+        <h1>Nostalgia 76-77 | SSLC Batch Reunion</h1>
+        <div class="ml-title">നോസ്റ്റാൾജിയ 76-77 | എസ്.എസ്.എൽ.സി ബാച്ച് SKMJ High School</div>
+        
+        <p class="motto">"Connecting together for friendship, social service, and shared joy among all members, without bias or distinction."</p>
+        <p class="motto-ml">"എല്ലാ അംഗങ്ങളെയും വലുതോ ചെറുതോ എന്ന വ്യത്യാസമില്ലാതെ, പക്ഷപാതമില്ലാതെ, സൗഹൃദത്തിനും സാമൂഹ്യസേവനത്തിനും പരസ്പര സന്തോഷത്തിനുമായി ഒരുമിച്ച് ബന്ധിപ്പിക്കുക."</p>
+        
         <a href="#full-registry" class="hero-btn">Help Find Our Batchmates / ബാച്ച്മേറ്റുകളെ കണ്ടെത്താം</a>
     </section>
 
@@ -200,27 +227,112 @@
         </div>
     </div>
 
+    <section>
+        <div class="bilingual-title">
+            <h2>Our Objectives</h2>
+            <div class="ml-text">ഞങ്ങളുടെ ലക്ഷ്യങ്ങൾ</div>
+        </div>
+        <div class="grid grid-2">
+            <ul style="list-style-position: inside; color: var(--text-light); line-height: 1.8;">
+                <li>Reconnect old classmates.</li>
+                <li>Strengthen friendship and unity.</li>
+                <li>Promote social service activities.</li>
+                <li>Share memories, updates, and future plans.</li>
+                <li>Create a common platform for all batch members.</li>
+            </ul>
+            <ul style="list-style-position: inside; font-family: 'Noto Sans Malayalam', sans-serif; color: var(--text-light); line-height: 1.8;">
+                <li>പഴയ സഹപാഠികളെ വീണ്ടും ബന്ധിപ്പിക്കുക.</li>
+                <li>സൗഹൃദവും ഐക്യവും ശക്തിപ്പെടുത്തുക.</li>
+                <li>സാമൂഹ്യസേവന പ്രവർത്തനങ്ങൾ പ്രോത്സാഹിപ്പിക്കുക.</li>
+                <li>ഓർമ്മകളും വാർത്തകളും ഭാവി പദ്ധതികളും പങ്കിടുക.</li>
+                <li>എല്ലാ ബാച്ച് അംഗങ്ങൾക്കും ഒരു പൊതുവേദി സൃഷ്ടിക്കുക.</li>
+            </ul>
+        </div>
+        
+        <div style="margin-top: 40px; background-color: #fff3cd; padding: 30px; border-radius: 12px; border: 1px solid #ffeeba;">
+            <div class="bilingual-title" style="margin-bottom: 20px;">
+                <h3 style="color: var(--primary); font-size: 1.6rem; margin-bottom: 0;">WhatsApp Group Ethics</h3>
+                <div class="ml-text" style="font-size: 1.2rem; color: var(--primary);">വാട്ട്സ്ആപ്പ് പെരുമാറ്റച്ചട്ടം</div>
+            </div>
+            <p style="margin-bottom: 15px; font-size: 1rem; color: var(--text-main); text-align: justify;">
+                We have a dedicated WhatsApp group for our batch members to stay connected. To ensure a peaceful and joyful environment for everyone, we strictly request all members to follow basic group ethics. Please refrain from posting any obscene, political, religious, or hurtful messages. Let us keep our platform focused on friendship and unity.
+            </p>
+            <p class="ml-text" style="font-size: 1rem; color: var(--text-main); text-align: justify; line-height: 1.8;">
+                നമ്മുടെ ബാച്ച് അംഗങ്ങൾക്ക് പരസ്പരം ബന്ധപ്പെടുന്നതിനായി ഒരു വാട്ട്സ്ആപ്പ് ഗ്രൂപ്പ് നിലവിലുണ്ട്. എല്ലാവർക്കും സന്തോഷകരമായ ഒരു അന്തരീക്ഷം ഉറപ്പാക്കാൻ, ഗ്രൂപ്പിലെ പെരുമാറ്റച്ചട്ടങ്ങൾ നിർബന്ധമായും പാലിക്കാൻ അഭ്യർത്ഥിക്കുന്നു. അശ്ലീലമായതോ, രാഷ്ട്രീയമോ മതപരമോ ആയ കാര്യങ്ങളോ, മറ്റുള്ളവരെ വേദനിപ്പിക്കുന്നതോ ആയ സന്ദേശങ്ങൾ ഗ്രൂപ്പിൽ പങ്കുവെക്കുന്നത് കർശനമായി ഒഴിവാക്കുക. നമ്മുടെ കൂട്ടായ്മ സൗഹൃദത്തിനും ഐക്യത്തിനും മാത്രമുള്ളതായിരിക്കട്ടെ.
+            </p>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="bilingual-title">
+            <h2>About Us</h2>
+            <div class="ml-text">ഞങ്ങളെക്കുറിച്ച്</div>
+        </div>
+        <div class="grid grid-2">
+            <div style="text-align: justify; color: var(--text-main);">
+                <p>Welcome to the official website of Nostalgia 76-77 . This platform is an extension of our vibrant WhatsApp group, created to keep our childhood friendships alive. Our core focus is on unity, social service, and sharing moments of joy. We wish to stay connected, support one another in times of need, and cherish the golden memories of our school days.</p>
+            </div>
+            <div class="ml-text" style="color: var(--text-main); font-size: 1.05em; text-align: justify; line-height: 1.8;">
+                <p>നോസ്റ്റാൾജിയ 76-77 SSLC (SKMJ High School) ബാച്ചിന്റെ  ഔദ്യോഗിക വെബ്സൈറ്റിലേക്ക് സ്വാഗതം. നമ്മുടെ സജീവമായ വാട്ട്സ്ആപ്പ് കൂട്ടായ്മയുടെ തുടർച്ചയായാണ് ഈ വേദി ഒരുക്കിയിരിക്കുന്നത്. സൗഹൃദം, ഐക്യം, സാമൂഹ്യസേവനം, സന്തോഷങ്ങൾ പങ്കിടൽ എന്നിവയാണ് നമ്മുടെ പ്രധാന ലക്ഷ്യങ്ങൾ. പരസ്പരം താങ്ങായി നിൽക്കാനും സ്കൂൾ കാലത്തെ സുവർണ്ണ ഓർമ്മകൾ കാത്തുസൂക്ഷിക്കാനും ഈ കൂട്ടായ്മ നമ്മെ സഹായിക്കും.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="committee">
         <div class="bilingual-title"><h2>Office Bearers / ഭാരവാഹികൾ</h2></div>
         <div class="grid grid-3" style="text-align: center; margin-bottom: 50px;">
-            <div style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border: 1px solid #eee;">
-                <h3>Joseph Plato Pereira</h3><p class="ml-text">President / പ്രസിഡന്റ്</p>
+            <div class="card">
+                <h3 style="font-size: 1.4rem;">Joseph Plato Pereira</h3>
+                <p class="ml-text" style="color: var(--text-light);">President / പ്രസിഡന്റ്</p>
             </div>
-            <div style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border: 1px solid #eee;">
-                <h3>Sankaranarayanan M</h3><p class="ml-text">General Secretary / ജനറൽ സെക്രട്ടറി</p>
+            <div class="card">
+                <h3 style="font-size: 1.4rem;">Sankaranarayanan M</h3>
+                <p class="ml-text" style="color: var(--text-light);">General Secretary / ജനറൽ സെക്രട്ടറി</p>
             </div>
-            <div style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border: 1px solid #eee;">
-                <h3>Ratheesh kumar C K</h3><p class="ml-text">Treasurer / ട്രഷറർ</p>
+            <div class="card">
+                <h3 style="font-size: 1.4rem;">Ratheesh kumar C K</h3>
+                <p class="ml-text" style="color: var(--text-light);">Treasurer / ട്രഷറർ</p>
             </div>
         </div>
 
         <div style="text-align: center; padding: 30px; background: #fff3cd; border-radius: 15px; border: 1px solid #ffeeba;">
-            <h3 style="margin-bottom: 15px;">Earlier Office Bearers / മുൻ ഭാരവാഹികൾ</h3>
-            <p style="margin-bottom: 20px; font-weight: 600; color: var(--primary);">
+            <h3 style="margin-bottom: 15px; font-size: 1.5rem;">Earlier Office Bearers / മുൻ ഭാരവാഹികൾ</h3>
+            <p style="margin-bottom: 20px; font-weight: 600; color: var(--primary); font-size: 1.1rem;">
                 Joseph P (Gen. Secretary) | R Rajan (President) | Thankachan P J (Treasurer)
             </p>
-            <img src="photo5.jpg" style="max-width: 100%; border: 4px solid var(--primary); box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-            <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 10px;">(From Left: Joseph P, R Rajan, Thankachan P J)</p>
+            <img src="photo5.jpg" style="max-width: 100%; border: 4px solid var(--primary); box-shadow: 0 5px 15px rgba(0,0,0,0.15); border-radius: 8px;">
+            <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 15px;">(From Left: Joseph P, R Rajan, Thankachan P J)</p>
+        </div>
+    </section>
+
+    <section id="members">
+        <div class="bilingual-title"><h2>Members Directory / അംഗങ്ങൾ</h2></div>
+        
+        <div style="background-color: #fff3cd; color: #856404; padding: 15px 20px; border-radius: 8px; text-align: center; margin-bottom: 30px; border-left: 5px solid #ffeeba;">
+            <strong>Security Note:</strong> Member mobile numbers are not published on the website for privacy and security reasons.<br>
+            <span class="ml-text" style="display:block; margin-top:5px;">അംഗങ്ങളുടെ മൊബൈൽ നമ്പറുകൾ സ്വകാര്യതയും സുരക്ഷയും കണക്കിലെടുത്ത് വെബ്സൈറ്റിൽ പ്രസിദ്ധീകരിക്കുന്നതല്ല.</span>
+        </div>
+
+        <div class="grid grid-2">
+            <div class="card">
+                <div style="font-size: 3.5rem; margin-bottom: 15px;">📱</div>
+                <h3 style="font-size: 1.6rem; color: var(--primary);">Active Group Members</h3>
+                <div class="ml-text" style="margin-bottom: 15px; font-size: 1.1rem;">വാട്ട്സ്ആപ്പ് ഗ്രൂപ്പ് അംഗങ്ങൾ</div>
+                <p style="font-size: 1rem; color: var(--text-light); margin-bottom: 25px;">View the directory of our current, active WhatsApp group members.</p>
+                <a href="members-directory.pdf" target="_blank" class="btn-pdf" style="padding: 14px 30px;">📄 Open Active Directory</a>
+            </div>
+            
+            <div id="full-registry" class="card" style="border: 2px solid var(--secondary);">
+                <div style="font-size: 3.5rem; margin-bottom: 15px;">🏫</div>
+                <h3 style="font-size: 1.6rem; color: var(--primary);">Complete 1977 Batch</h3>
+                <div class="ml-text" style="margin-bottom: 15px; font-size: 1.1rem;">മുഴുവൻ ബാച്ച് അംഗങ്ങൾ</div>
+                <p style="font-size: 1rem; color: var(--text-light); margin-bottom: 15px;">View the historical registry of all our 1977 SSLC batchmates.</p>
+                
+                <p class="blink-red" style="margin-bottom: 5px;">Use this list to find our batchmates.</p>
+                <p class="blink-red ml-text" style="margin-bottom: 25px;"> നമ്മുടെ സഹപാഠികളെ കണ്ടെത്താൻ ഈ ലിസ്റ്റ് ഉപയോഗിക്കുക.</p>
+                
+                <a href="full_list_sslc_1977.pdf" target="_blank" class="btn-pdf" style="padding: 14px 30px;">📄 Open Full Registry</a>
+            </div>
         </div>
     </section>
 
@@ -229,54 +341,65 @@
         <div class="timeline">
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <strong>Expand our Network</strong><br>
-                    Finding all friends as per the full list and inviting them to join our group.
-                    <br><span class="ml-text">പൂർണ്ണമായ ലിസ്റ്റ് പ്രകാരം എല്ലാ സുഹൃത്തുക്കളെയും കണ്ടെത്തുകയും അവരെ ഗ്രൂപ്പിൽ ചേർക്കുകയും ചെയ്യുക.</span>
+                    <strong style="font-size: 1.1rem; color: var(--primary);">Expand our Network</strong><br>
+                    <span style="color: var(--text-main);">Finding all friends as per the full list and inviting them to join our group.</span>
+                    <br><span class="ml-text" style="color: var(--text-light);">പൂർണ്ണമായ ലിസ്റ്റ് പ്രകാരം എല്ലാ സുഹൃത്തുക്കളെയും കണ്ടെത്തുകയും അവരെ ഗ്രൂപ്പിൽ ചേർക്കുകയും ചെയ്യുക.</span>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <strong>Develop Website & Mobile App</strong><br>
-                    Creating a digital home for our batch memories.
-                    <br><span class="ml-text">നമ്മുടെ ബാച്ച് ഓർമ്മകൾക്കായി ഒരു വെബ്സൈറ്റും മൊബൈൽ ആപ്പും വികസിപ്പിക്കുക.</span>
+                    <strong style="font-size: 1.1rem; color: var(--primary);">Develop Website & Mobile App</strong><br>
+                    <span style="color: var(--text-main);">Creating a digital home for our batch memories.</span>
+                    <br><span class="ml-text" style="color: var(--text-light);">നമ്മുടെ ബാച്ച് ഓർമ്മകൾക്കായി ഒരു വെബ്സൈറ്റും മൊബൈൽ ആപ്പും വികസിപ്പിക്കുക.</span>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <strong>Guruvandanam</strong><br>
-                    Felicitating and honoring the teachers who shaped our lives.
-                    <br><span class="ml-text">ഗുരുവന്ദനം (അധ്യാപകരെ ആദരിക്കൽ)</span>
+                    <strong style="font-size: 1.1rem; color: var(--primary);">Guruvandanam</strong><br>
+                    <span style="color: var(--text-main);">Felicitating and honoring the teachers who shaped our lives.</span>
+                    <br><span class="ml-text" style="color: var(--text-light);">ഗുരുവന്ദനം (അധ്യാപകരെ ആദരിക്കൽ)</span>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <strong>One-Day Tour</strong><br>
-                    Organizing a refreshing trip for all members to reconnect.
-                    <br><span class="ml-text">അംഗങ്ങൾക്കായി ഏകദിന വിനോദയാത്ര സംഘടിപ്പിക്കുക.</span>
+                    <strong style="font-size: 1.1rem; color: var(--primary);">One-Day Tour</strong><br>
+                    <span style="color: var(--text-main);">Organizing a refreshing trip for all members to reconnect.</span>
+                    <br><span class="ml-text" style="color: var(--text-light);">അംഗങ്ങൾക്കായി ഏകദിന വിനോദയാത്ര സംഘടിപ്പിക്കുക.</span>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <strong>Charity & Social Service</strong><br>
-                    Supporting our community and helping those in need.
-                    <br><span class="ml-text">ജീവകാരുണ്യ സാമൂഹ്യസേവന പ്രവർത്തനങ്ങൾ.</span>
+                    <strong style="font-size: 1.1rem; color: var(--primary);">Charity & Social Service</strong><br>
+                    <span style="color: var(--text-main);">Supporting our community and helping those in need.</span>
+                    <br><span class="ml-text" style="color: var(--text-light);">ജീവകാരുണ്യ സാമൂഹ്യസേവന പ്രവർത്തനങ്ങൾ.</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <strong style="font-size: 1.1rem; color: var(--primary);">Awareness Classes on Current Topics</strong><br>
+                    <span class="ml-text" style="color: var(--text-light);">കാലികപ്രസക്തമായ വിഷയങ്ങളിൽ ബോധവൽക്കരണ ക്ലാസ്സുകൾ.</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <strong style="font-size: 1.1rem; color: var(--primary);">Quarterly Google Meet Meetings</strong><br>
+                    <span class="ml-text" style="color: var(--text-light);">ത്രൈമാസ ഗൂഗിൾ മീറ്റ് യോഗങ്ങൾ.</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="members">
-        <div class="bilingual-title"><h2>Members Directory / അംഗങ്ങൾ</h2></div>
-        <div class="grid grid-2">
-            <div style="text-align: center; padding: 20px; background: #fff; border-radius: 12px; border: 1px solid #eee;">
-                <h3>Active Members</h3>
-                <a href="members-directory.pdf" target="_blank" class="btn-pdf">📄 Open Active List</a>
-            </div>
-            <div id="full-registry" style="text-align: center; padding: 20px; background: #fff; border-radius: 12px; border: 2px solid var(--secondary);">
-                <h3>Full Batch Registry</h3>
-                <p class="blink-red" style="margin: 10px 0;">Use this list to help us find missing batchmates.</p>
-                <p class="blink-red ml-text" style="margin-bottom: 15px;">നമ്മുടെ സഹപാഠികളെ കണ്ടെത്താൻ ഈ ലിസ്റ്റ് ഉപയോഗിക്കുക.</p>
-                <a href="full_list_sslc_1977.pdf" target="_blank" class="btn-pdf">📄 Open Full Registry</a>
+    <section id="minutes">
+        <div class="bilingual-title">
+            <h2>Meeting Minutes</h2>
+            <div class="ml-text">യോഗക്കുറിപ്പുകൾ (മിനിറ്റ്സ്)</div>
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <div class="card" style="max-width: 450px; width: 100%;">
+                <div style="font-weight: 600; color: var(--primary); font-size: 1.4rem; margin-bottom: 5px;">Core Committee Meeting</div>
+                <div style="color: var(--text-light); font-size: 1rem; margin-bottom: 15px;">Date: 21-04-2026</div>
+                <p style="font-size: 0.95em; margin-bottom: 20px; color: var(--text-main);">Decisions on Guruvandanam, one-day tour, charitable activities, and future plans.</p>
+                <a href="minutes_21042026.pdf" target="_blank" class="btn-pdf">📄 Download PDF</a>
             </div>
         </div>
     </section>
@@ -284,27 +407,47 @@
     <section id="bank">
         <div class="bilingual-title"><h2>Bank Account Details / ബാങ്ക് അക്കൗണ്ട് വിവരങ്ങൾ</h2></div>
         <div class="bank-box">
-            <div style="font-family: monospace; font-size: 1.2rem; font-weight: bold; color: #333;">Account No: 171412301202190</div>
-            <div style="margin: 10px 0; font-weight: bold; color: var(--primary);">KERALA BANK</div>
-            <div style="margin-bottom: 5px;">KALPETTA MAIN BRANCH</div>
-            <div style="font-family: monospace; font-weight: bold;">IFSC: KSBK0001714</div>
+            <div class="bank-detail-item">Account No: 171412301202190</div>
+            <div style="margin: 15px 0; font-weight: bold; color: var(--primary); font-size: 1.4rem;">KERALA BANK</div>
+            <div style="margin-bottom: 10px; font-size: 1.1rem; color: var(--text-main);">KALPETTA MAIN BRANCH</div>
+            <div class="bank-detail-item">IFSC: KSBK0001714</div>
         </div>
     </section>
 
     <section id="gallery">
         <div class="bilingual-title"><h2>Gallery / ഓർമ്മച്ചിത്രങ്ങൾ</h2></div>
-        <div class="grid grid-2">
-            <img src="photo2.jpg">
-            <img src="photo3.jpg">
-            <img src="photo4.jpg">
-            <img src="photo6.jpg">
-            <img src="photo7.jpg">
+        <div class="grid grid-3">
+            <img src="photo2.jpg" alt="Gallery Photo 2">
+            <img src="photo3.jpg" alt="Gallery Photo 3">
+            <img src="photo4.jpg" alt="Gallery Photo 4">
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="gallery.html" class="btn-pdf" style="padding: 16px 40px; font-size: 1.1rem; border-radius: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                📸 View Photo Gallery <br>
+                <span class="ml-text" style="color: var(--white); display: block; margin-top: 5px; font-size: 1rem;"> കൂടുതൽ ചിത്രങ്ങൾ കാണുക</span>
+            </a>
         </div>
     </section>
 
-    <footer style="background: var(--primary); color: #fff; text-align: center; padding: 40px 20px;">
-        <p>&copy; 2026 Nostalgia 76-77 Alumni</p>
-    </footer>
+    <footer style="background: var(--primary); color: var(--white); text-align: center; padding: 50px 20px;">
+        <h2 style="color: var(--white); font-size: 1.8rem;">Nostalgia 76-77 Family</h2>
+        <div class="ml-text" style="color:var(--white); margin-bottom: 25px; font-size: 1.2rem;">നോസ്റ്റാൾജിയ 76-77 കുടുംബം</div>
+        
+        <p style="max-width: 700px; margin: auto; font-style: italic; margin-bottom: 30px; font-size: 1.1rem; opacity: 0.9;">
+            "Connecting together for friendship, social service, and shared joy among all members."
+        </p>
+
+        <div style="background-color: transparent; border: 1px solid rgba(255,255,255,0.2); color: var(--white); text-align: center; max-width: 800px; margin: 0 auto 30px auto; padding: 20px; border-radius: 8px;">
+            Members may communicate through the WhatsApp group admins. Personal phone numbers are not displayed on the website.<br>
+            <span class="ml-text" style="color: var(--secondary); display: block; margin-top: 10px;">അംഗങ്ങൾക്ക് വാട്ട്സ്ആപ്പ് ഗ്രൂപ്പ് അഡ്മിന്മാർ മുഖേന ബന്ധപ്പെടാം. വ്യക്തിഗത ഫോൺ നമ്പറുകൾ വെബ്സൈറ്റിൽ പ്രദർശിപ്പിക്കുന്നതല്ല.</span>
+        </div>
+
+        <p>&copy; 2026. Designed for our Nostalgia 76-77 Alumni.</p>
+        <p class="ml-text" style="color:var(--secondary); margin-top:5px;">ഞങ്ങളുടെ നോസ്റ്റാൾജിയ 76-77 സുഹൃത്തുക്കൾക്കായി രൂപകൽപ്പന ചെയ്തത്.</p>
+    <div style="margin-top: 30px; font-size: 0.85rem; color: #e0d5c1; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px;">
+    <p>Developed and maintained by Sankaranarayanan</p>
+</div>
+	</footer>
 
     <script>
         function toggleMenu() { document.getElementById("navLinks").classList.toggle("active"); }
@@ -313,6 +456,5 @@
             item.addEventListener('click', function() { document.getElementById("navLinks").classList.remove("active"); });
         });
     </script>
-
 </body>
 </html>
