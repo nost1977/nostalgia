@@ -105,9 +105,7 @@
             font-weight: bold;
             animation: blinker 1.5s linear infinite;
         }
-        @keyframes blinker {
-            50% { opacity: 0; }
-        }
+        @keyframes blinker { 50% { opacity: 0; } }
 
         /* --- Layout & Sections --- */
         section { padding: 60px 20px; max-width: 1200px; margin: auto; }
@@ -161,7 +159,6 @@
             border-radius: 8px;
         }
 
-        /* --- Responsive --- */
         @media (max-width: 768px) {
             .nav-links {
                 display: none; flex-direction: column; width: 100%; position: absolute;
@@ -203,7 +200,6 @@
         </div>
     </div>
 
-    <!-- Committee Section -->
     <section id="committee">
         <div class="bilingual-title"><h2>Office Bearers / ഭാരവാഹികൾ</h2></div>
         <div class="grid grid-3" style="text-align: center; margin-bottom: 50px;">
@@ -214,11 +210,10 @@
                 <h3>Sankaranarayanan M</h3><p class="ml-text">General Secretary / ജനറൽ സെക്രട്ടറി</p>
             </div>
             <div style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border: 1px solid #eee;">
-                <h3>Ratheesh kumar C K </h3><p class="ml-text">Treasurer / ട്രഷറർ</p>
+                <h3>Ratheesh kumar C K</h3><p class="ml-text">Treasurer / ട്രഷറർ</p>
             </div>
         </div>
 
-        <!-- Corrected Earlier Office Bearers Section -->
         <div style="text-align: center; padding: 30px; background: #fff3cd; border-radius: 15px; border: 1px solid #ffeeba;">
             <h3 style="margin-bottom: 15px;">Earlier Office Bearers / മുൻ ഭാരവാഹികൾ</h3>
             <p style="margin-bottom: 20px; font-weight: 600; color: var(--primary);">
@@ -229,13 +224,8 @@
         </div>
     </section>
 
-    <!-- Road Map Section -->
     <section id="roadmap">
-        <div class="bilingual-title">
-            <h2>Road Map</h2>
-            <div class="ml-text">പ്രവർത്തനരേഖ</div>
-        </div>
-        
+        <div class="bilingual-title"><h2>Road Map / പ്രവർത്തനരേഖ</h2></div>
         <div class="timeline">
             <div class="timeline-item">
                 <div class="timeline-content">
@@ -275,44 +265,32 @@
         </div>
     </section>
 
-    <!-- Members Section -->
     <section id="members">
         <div class="bilingual-title"><h2>Members Directory / അംഗങ്ങൾ</h2></div>
-        <div class="privacy-note" style="text-align: center; margin-bottom: 20px; background: #fdfaf6; padding: 15px; border-radius: 8px;">
-            <strong>Security Note:</strong> Member mobile numbers are not published for privacy reasons.
-        </div>
-        <div class="grid grid-2" style="margin-top:30px;">
+        <div class="grid grid-2">
             <div style="text-align: center; padding: 20px; background: #fff; border-radius: 12px; border: 1px solid #eee;">
                 <h3>Active Members</h3>
-                <div class="ml-text">സജീവ അംഗങ്ങൾ</div>
                 <a href="members-directory.pdf" target="_blank" class="btn-pdf">📄 Open Active List</a>
             </div>
             <div id="full-registry" style="text-align: center; padding: 20px; background: #fff; border-radius: 12px; border: 2px solid var(--secondary);">
                 <h3>Full Batch Registry</h3>
-                <div class="ml-text">മുഴുവൻ ലിസ്റ്റ്</div>
-                <p class="blink-red" style="margin: 15px 0;">Use this list to help us find missing batchmates.</p>
-                <p class="blink-red ml-text" style="margin-bottom: 20px;">നമ്മുടെ സഹപാഠികളെ കണ്ടെത്താൻ ഈ ലിസ്റ്റ് ഉപയോഗിക്കുക.</p>
+                <p class="blink-red" style="margin: 10px 0;">Use this list to help us find missing batchmates.</p>
+                <p class="blink-red ml-text" style="margin-bottom: 15px;">നമ്മുടെ സഹപാഠികളെ കണ്ടെത്താൻ ഈ ലിസ്റ്റ് ഉപയോഗിക്കുക.</p>
                 <a href="full_list_sslc_1977.pdf" target="_blank" class="btn-pdf">📄 Open Full Registry</a>
             </div>
         </div>
     </section>
 
-    <!-- Bank Details Section -->
     <section id="bank">
-        <div class="bilingual-title">
-            <h2>Bank Account Details</h2>
-            <div class="ml-text">ബാങ്ക് അക്കൗണ്ട് വിവരങ്ങൾ</div>
-        </div>
+        <div class="bilingual-title"><h2>Bank Account Details / ബാങ്ക് അക്കൗണ്ട് വിവരങ്ങൾ</h2></div>
         <div class="bank-box">
-            <p style="margin-bottom: 15px; color: var(--text-light);">Members can contribute to our batch common fund using the details below:</p>
-            <div class="bank-detail-item">Account No: 171412301202190</div>
+            <div style="font-family: monospace; font-size: 1.2rem; font-weight: bold; color: #333;">Account No: 171412301202190</div>
             <div style="margin: 10px 0; font-weight: bold; color: var(--primary);">KERALA BANK</div>
             <div style="margin-bottom: 5px;">KALPETTA MAIN BRANCH</div>
-            <div class="bank-detail-item">IFSC: KSBK0001714</div>
+            <div style="font-family: monospace; font-weight: bold;">IFSC: KSBK0001714</div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
     <section id="gallery">
         <div class="bilingual-title"><h2>Gallery / ഓർമ്മച്ചിത്രങ്ങൾ</h2></div>
         <div class="grid grid-2">
@@ -336,17 +314,5 @@
         });
     </script>
 
-    <!-- Tawk.to Script -->
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/69ea3ae2861ae21c352e02dd/1jmtfc1fe';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
 </body>
 </html>
