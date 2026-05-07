@@ -8,12 +8,13 @@
     <style>
         /* --- Color Palette & Variables --- */
         :root {
-            --primary: #6b2737; /* Deep Maroon / Warmth */
-            --secondary: #d4af37; /* Soft Gold / Nostalgia */
-            --bg-color: #fdfaf6; /* Cream / Easy on the eyes */
+            --primary: #6b2737;
+            --secondary: #d4af37;
+            --bg-color: #fdfaf6;
             --text-main: #333333;
             --text-light: #666666;
             --white: #ffffff;
+            --alert-red: #ff0000;
         }
 
         /* --- Global Styles --- */
@@ -23,7 +24,7 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
-            font-size: 18px; /* Larger font for senior citizens */
+            font-size: 18px;
         }
         img { max-width: 100%; height: auto; border-radius: 8px; }
         a { text-decoration: none; color: inherit; }
@@ -33,9 +34,8 @@
         .ml-text { font-family: 'Noto Sans Malayalam', sans-serif; color: var(--primary); font-size: 0.95em; margin-top: 5px; }
         .bilingual-title { text-align: center; margin-bottom: 40px; }
         .bilingual-title h2 { font-size: 2rem; margin-bottom: 5px; }
-        .bilingual-title .ml-text { font-size: 1.5rem; color: var(--text-light); }
 
-        /* --- Navigation (Sticky) --- */
+        /* --- Navigation --- */
         header {
             background-color: var(--primary);
             color: var(--white);
@@ -53,10 +53,32 @@
             margin: auto;
         }
         .logo { font-weight: 600; font-size: 1.2rem; color: var(--secondary); }
-        .nav-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
-        .nav-links a { color: var(--white); font-weight: 400; transition: color 0.3s; font-size: 0.9rem; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { color: var(--white); font-size: 0.9rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--secondary); }
         .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--secondary); }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('photo1.jpg') center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 120px 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        .hero h1 { color: var(--secondary); font-size: 2.8rem; margin-bottom: 20px; }
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 14px 35px;
+            border-radius: 40px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .hero-btn:hover { transform: scale(1.05); background-color: #e5c158; }
 
         /* --- Scrolling Message --- */
         .scrolling-container {
@@ -67,7 +89,6 @@
             overflow: hidden;
             white-space: nowrap;
             border-bottom: 2px solid var(--secondary);
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
         }
         .scrolling-text {
             display: inline-block;
@@ -76,33 +97,34 @@
             font-size: 1.1rem;
             font-weight: 600;
         }
-        @keyframes marquee {
-            0%   { transform: translate(0, 0); }
-            100% { transform: translate(-100%, 0); }
+        @keyframes marquee { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
+
+        /* --- Blinking Red Text Animation --- */
+        .blink-red {
+            color: var(--alert-red);
+            font-weight: bold;
+            animation: blinker 1.5s linear infinite;
+        }
+        @keyframes blinker {
+            50% { opacity: 0; }
         }
 
-        /* --- Hero Section --- */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url('photo1.jpg') center/cover;
-            color: var(--white);
-            text-align: center;
-            padding: 80px 20px;
-            min-height: 50vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-        }
-        .hero h1 { color: var(--secondary); font-size: 2.5rem; }
-
-        /* --- Layout --- */
+        /* --- Layout & Sections --- */
         section { padding: 60px 20px; max-width: 1200px; margin: auto; }
         section:nth-child(even) { background-color: var(--white); border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         
         .grid { display: grid; gap: 20px; }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
         .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 
-        /* --- PDF Buttons --- */
+        /* --- Timeline (Road Map) --- */
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+        .timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--secondary); top: 0; bottom: 0; left: 20px; margin-left: -2px; }
+        .timeline-item { padding: 10px 40px; position: relative; width: 100%; margin-bottom: 20px; }
+        .timeline-item::after { content: ''; position: absolute; width: 20px; height: 20px; left: 10px; background-color: var(--primary); border: 4px solid var(--secondary); top: 15px; border-radius: 50%; z-index: 1; }
+        .timeline-content { padding: 20px; background: var(--white); border-radius: 8px; box-shadow: 0 3px 6px rgba(0,0,0,0.05); border-left: 5px solid var(--primary); }
+
+        /* --- Buttons --- */
         .btn-pdf {
             display: inline-block;
             background-color: var(--primary);
@@ -111,33 +133,43 @@
             border-radius: 30px;
             margin-top: 15px;
             font-size: 1rem;
-            transition: background 0.3s;
+            transition: 0.3s;
             border: none;
             cursor: pointer;
-            text-align: center;
         }
         .btn-pdf:hover { background-color: var(--secondary); color: var(--primary); }
+
+        /* --- Bank Details Box --- */
+        .bank-box {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #fff;
+            border: 2px dashed var(--secondary);
+            border-radius: 15px;
+            text-align: center;
+        }
+        .bank-detail-item { font-family: monospace; font-size: 1.1rem; color: #333; font-weight: bold; }
 
         /* --- Gallery --- */
         #gallery img {
             width: 100%;
             height: 250px;
             object-fit: contain;
-            background-color: #ffffff;
-            border: 1px solid #e0d5c1;
+            background-color: #fff;
+            border: 1px solid #eee;
             border-radius: 8px;
-            margin-bottom: 10px;
         }
 
-        /* --- Mobile Responsive Fixes --- */
+        /* --- Responsive --- */
         @media (max-width: 768px) {
             .nav-links {
                 display: none; flex-direction: column; width: 100%; position: absolute;
-                top: 60px; left: 0; background-color: var(--primary); text-align: center; padding: 10px 0;
+                top: 60px; left: 0; background-color: var(--primary); padding: 10px 0; text-align: center;
             }
             .nav-links.active { display: flex; }
             .menu-toggle { display: block; }
-            .grid-2 { grid-template-columns: 1fr; } /* Force single column on mobile */
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -149,20 +181,19 @@
             <div class="menu-toggle" onclick="toggleMenu()">☰</div>
             <nav class="nav-links" id="navLinks">
                 <a href="#home">Home</a>
-                <a href="#about">About</a>
                 <a href="#committee">Committee</a>
                 <a href="#members">Members</a>
-                <a href="#minutes">Minutes</a>
                 <a href="#roadmap">Road Map</a>
+                <a href="#bank">Contribution</a>
                 <a href="#gallery">Gallery</a>
             </nav>
         </div>
     </header>
 
     <section id="home" class="hero">
-        <h1>Nostalgia 76-77 | SSLC Batch Reunion</h1>
-        <div class="ml-title">നോസ്റ്റാൾജിയ 76-77 | എസ്.എസ്.എൽ.സി ബാച്ച് SKMJ High School</div>
-        <p style="margin-top:20px;">"Connecting together for friendship, social service, and shared joy."</p>
+        <h1>Nostalgia 76-77 | SSLC Batch</h1>
+        <div class="ml-title" style="font-size: 1.8rem; color: #f0e6d2;">എസ്.എസ്.എൽ.സി ബാച്ച് SKMJ High School</div>
+        <a href="#full-registry" class="hero-btn">Help Find Our Batchmates / ബാച്ച്മേറ്റുകളെ കണ്ടെത്താം</a>
     </section>
 
     <div class="scrolling-container">
@@ -172,126 +203,140 @@
         </div>
     </div>
 
-    <section>
-        <div class="bilingual-title">
-            <h2>Our Objectives</h2>
-            <div class="ml-text">ഞങ്ങളുടെ ലക്ഷ്യങ്ങൾ</div>
-        </div>
-        <div class="grid grid-2">
-            <ul style="list-style-position: inside; color: var(--text-light);">
-                <li>Reconnect old classmates.</li>
-                <li>Strengthen friendship and unity.</li>
-                <li>Promote social service activities.</li>
-            </ul>
-            <ul style="list-style-position: inside; font-family: 'Noto Sans Malayalam', sans-serif; color: var(--text-light);">
-                <li>പഴയ സഹപാഠികളെ വീണ്ടും ബന്ധിപ്പിക്കുക.</li>
-                <li>സൗഹൃദവും ഐക്യവും ശക്തിപ്പെടുത്തുക.</li>
-                <li>സാമൂഹ്യസേവന പ്രവർത്തനങ്ങൾ പ്രോത്സാഹിപ്പിക്കുക.</li>
-            </ul>
-        </div>
-        
-        <div style="margin-top: 40px; background: #fdfaf6; padding: 25px; border-radius: 12px; border: 1px solid #e0d5c1;">
-            <h3 style="text-align: center; color: var(--primary);">WhatsApp Group Ethics</h3>
-            <p style="font-size: 0.95rem; text-align: justify;">Please refrain from posting any obscene, political, religious, or hurtful messages. Let us keep our platform focused on friendship and unity.</p>
-        </div>
-    </section>
-
-    <section id="about">
-        <div class="bilingual-title">
-            <h2>About Us</h2>
-            <div class="ml-text">ഞങ്ങളെക്കുറിച്ച്</div>
-        </div>
-        <div class="grid grid-2">
-            <p style="text-align: justify;">Welcome to the official website of Nostalgia 76-77. This platform is an extension of our vibrant WhatsApp group, created to keep our childhood friendships alive.</p>
-            <p class="ml-text" style="text-align: justify; color: var(--text-main);">നോസ്റ്റാൾജിയ 76-77 ബാച്ചിന്റെ ഔദ്യോഗിക വെബ്സൈറ്റിലേക്ക് സ്വാഗതം. നമ്മുടെ സജീവമായ വാട്ട്സ്ആപ്പ് കൂട്ടായ്മയുടെ തുടർച്ചയായാണ് ഈ വേദി ഒരുക്കിയിരിക്കുന്നത്.</p>
-        </div>
-    </section>
-
+    <!-- Committee Section -->
     <section id="committee">
-        <div class="bilingual-title">
-            <h2>Office Bearers</h2>
-            <div class="ml-text">ഭാരവാഹികൾ</div>
+        <div class="bilingual-title"><h2>Office Bearers / ഭാരവാഹികൾ</h2></div>
+        <div class="grid grid-3" style="text-align: center; margin-bottom: 50px;">
+            <div style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border: 1px solid #eee;">
+                <h3>Joseph Plato Pereira</h3><p class="ml-text">President / പ്രസിഡന്റ്</p>
+            </div>
+            <div style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border: 1px solid #eee;">
+                <h3>Sankaranarayanan M</h3><p class="ml-text">General Secretary / ജനറൽ സെക്രട്ടറി</p>
+            </div>
+            <div style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border: 1px solid #eee;">
+                <h3>Ratheesh kumar C K </h3><p class="ml-text">Treasurer / ട്രഷറർ</p>
+            </div>
         </div>
-        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-            <div class="card"><h3>Plato</h3><p>President</p></div>
-            <div class="card"><h3>Sankaranarayanan</h3><p>General Secretary</p></div>
-            <div class="card"><h3>Ratheesh kumar</h3><p>Treasurer</p></div>
-        </div>
-        <div style="margin-top:40px; text-align:center;">
-             <img src="photo5.jpg" alt="Previous Office Bearers" style="max-width: 100%; border: 3px solid var(--secondary);">
+
+        <!-- Corrected Earlier Office Bearers Section -->
+        <div style="text-align: center; padding: 30px; background: #fff3cd; border-radius: 15px; border: 1px solid #ffeeba;">
+            <h3 style="margin-bottom: 15px;">Earlier Office Bearers / മുൻ ഭാരവാഹികൾ</h3>
+            <p style="margin-bottom: 20px; font-weight: 600; color: var(--primary);">
+                Joseph P (Gen. Secretary) | R Rajan (President) | Thankachan P J (Treasurer)
+            </p>
+            <img src="photo5.jpg" style="max-width: 100%; border: 4px solid var(--primary); box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+            <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 10px;">(From Left: Joseph P, R Rajan, Thankachan P J)</p>
         </div>
     </section>
 
-    <section id="members">
+    <!-- Road Map Section -->
+    <section id="roadmap">
         <div class="bilingual-title">
-            <h2>Members Directory</h2>
-            <div class="ml-text">അംഗങ്ങൾ</div>
+            <h2>Road Map</h2>
+            <div class="ml-text">പ്രവർത്തനരേഖ</div>
         </div>
         
-        <div class="privacy-note">
-            <strong>Security Note:</strong> Member mobile numbers are not published on the website for privacy and security reasons.
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <strong>Expand our Network</strong><br>
+                    Finding all friends as per the full list and inviting them to join our group.
+                    <br><span class="ml-text">പൂർണ്ണമായ ലിസ്റ്റ് പ്രകാരം എല്ലാ സുഹൃത്തുക്കളെയും കണ്ടെത്തുകയും അവരെ ഗ്രൂപ്പിൽ ചേർക്കുകയും ചെയ്യുക.</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <strong>Develop Website & Mobile App</strong><br>
+                    Creating a digital home for our batch memories.
+                    <br><span class="ml-text">നമ്മുടെ ബാച്ച് ഓർമ്മകൾക്കായി ഒരു വെബ്സൈറ്റും മൊബൈൽ ആപ്പും വികസിപ്പിക്കുക.</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <strong>Guruvandanam</strong><br>
+                    Felicitating and honoring the teachers who shaped our lives.
+                    <br><span class="ml-text">ഗുരുവന്ദനം (അധ്യാപകരെ ആദരിക്കൽ)</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <strong>One-Day Tour</strong><br>
+                    Organizing a refreshing trip for all members to reconnect.
+                    <br><span class="ml-text">അംഗങ്ങൾക്കായി ഏകദിന വിനോദയാത്ര സംഘടിപ്പിക്കുക.</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <strong>Charity & Social Service</strong><br>
+                    Supporting our community and helping those in need.
+                    <br><span class="ml-text">ജീവകാരുണ്യ സാമൂഹ്യസേവന പ്രവർത്തനങ്ങൾ.</span>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="grid grid-2" style="margin-top: 30px;">
-            <div style="text-align: center; padding: 25px; background: var(--white); border-radius: 12px; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-                <div style="font-size: 2.5rem; margin-bottom: 10px;">📱</div>
+    <!-- Members Section -->
+    <section id="members">
+        <div class="bilingual-title"><h2>Members Directory / അംഗങ്ങൾ</h2></div>
+        <div class="privacy-note" style="text-align: center; margin-bottom: 20px; background: #fdfaf6; padding: 15px; border-radius: 8px;">
+            <strong>Security Note:</strong> Member mobile numbers are not published for privacy reasons.
+        </div>
+        <div class="grid grid-2" style="margin-top:30px;">
+            <div style="text-align: center; padding: 20px; background: #fff; border-radius: 12px; border: 1px solid #eee;">
                 <h3>Active Members</h3>
-                <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 15px;">Current WhatsApp group members directory.</p>
+                <div class="ml-text">സജീവ അംഗങ്ങൾ</div>
                 <a href="members-directory.pdf" target="_blank" class="btn-pdf">📄 Open Active List</a>
             </div>
-
-            <div style="text-align: center; padding: 25px; background: var(--white); border-radius: 12px; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-                <div style="font-size: 2.5rem; margin-bottom: 10px;">🏫</div>
-                <h3>Complete 1977 Batch</h3>
-                <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 15px;">The full historical registry of all batchmates.</p>
+            <div id="full-registry" style="text-align: center; padding: 20px; background: #fff; border-radius: 12px; border: 2px solid var(--secondary);">
+                <h3>Full Batch Registry</h3>
+                <div class="ml-text">മുഴുവൻ ലിസ്റ്റ്</div>
+                <p class="blink-red" style="margin: 15px 0;">Use this list to help us find missing batchmates.</p>
+                <p class="blink-red ml-text" style="margin-bottom: 20px;">കാണാതായ സഹപാഠികളെ കണ്ടെത്താൻ ഈ ലിസ്റ്റ് ഉപയോഗിക്കുക.</p>
                 <a href="full_list_sslc_1977.pdf" target="_blank" class="btn-pdf">📄 Open Full Registry</a>
             </div>
         </div>
     </section>
 
-    <section id="minutes">
-        <div class="bilingual-title"><h2>Meeting Minutes</h2></div>
-        <div style="text-align:center;">
-            <a href="minutes_21042026.pdf" target="_blank" class="btn-pdf">📄 Download Core Committee Minutes</a>
+    <!-- Bank Details Section -->
+    <section id="bank">
+        <div class="bilingual-title">
+            <h2>Bank Account Details</h2>
+            <div class="ml-text">ബാങ്ക് അക്കൗണ്ട് വിവരങ്ങൾ</div>
+        </div>
+        <div class="bank-box">
+            <p style="margin-bottom: 15px; color: var(--text-light);">Members can contribute to our batch common fund using the details below:</p>
+            <div class="bank-detail-item">Account No: 171412301202190</div>
+            <div style="margin: 10px 0; font-weight: bold; color: var(--primary);">KERALA STATE CO-OPERATIVE BANK</div>
+            <div style="margin-bottom: 5px;">WAYANAD MAIN BRANCH</div>
+            <div class="bank-detail-item">IFSC: KSBK0001714</div>
         </div>
     </section>
 
-    <section id="roadmap">
-        <div class="bilingual-title"><h2>Road Map</h2></div>
-        <div class="timeline">
-            <div class="timeline-item"><div class="timeline-content">Develop Website & App</div></div>
-            <div class="timeline-item"><div class="timeline-content">Guruvandanam</div></div>
-            <div class="timeline-item"><div class="timeline-content">Charity Activities</div></div>
-        </div>
-    </section>
-
+    <!-- Gallery Section -->
     <section id="gallery">
-        <div class="bilingual-title"><h2>Gallery</h2></div>
-        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-            <img src="photo2.jpg" alt="Photo 2">
-            <img src="photo3.jpg" alt="Photo 3">
-            <img src="photo4.jpg" alt="Photo 4">
-            <img src="photo6.jpg" alt="Photo 6">
-            <img src="photo7.jpg" alt="Photo 7">
+        <div class="bilingual-title"><h2>Gallery / ഓർമ്മച്ചിത്രങ്ങൾ</h2></div>
+        <div class="grid grid-2">
+            <img src="photo2.jpg">
+            <img src="photo3.jpg">
+            <img src="photo4.jpg">
+            <img src="photo6.jpg">
+            <img src="photo7.jpg">
         </div>
     </section>
 
-    <footer style="background: var(--primary); color: white; text-align: center; padding: 40px 20px;">
+    <footer style="background: var(--primary); color: #fff; text-align: center; padding: 40px 20px;">
         <p>&copy; 2026 Nostalgia 76-77 Alumni</p>
     </footer>
 
     <script>
-        function toggleMenu() {
-            document.getElementById("navLinks").classList.toggle("active");
-        }
+        function toggleMenu() { document.getElementById("navLinks").classList.toggle("active"); }
         var navItems = document.querySelectorAll('.nav-links a');
         navItems.forEach(function(item) {
-            item.addEventListener('click', function() {
-                document.getElementById("navLinks").classList.remove("active");
-            });
+            item.addEventListener('click', function() { document.getElementById("navLinks").classList.remove("active"); });
         });
     </script>
 
+    <!-- Tawk.to Script -->
     <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
