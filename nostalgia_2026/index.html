@@ -137,21 +137,12 @@
             margin-top: 15px;
             font-size: 0.9rem;
             transition: background 0.3s;
+            border: none;
+            cursor: pointer;
         }
         .btn-pdf:hover {
             background-color: var(--secondary);
             color: var(--primary);
-        }
-
-        /* --- PDF Viewer Container --- */
-        .pdf-container {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border: 1px solid #ccc;
         }
 
         /* --- Timeline (Road Map) --- */
@@ -160,6 +151,18 @@
         .timeline-item { padding: 10px 40px; position: relative; background-color: inherit; width: 100%; margin-bottom: 20px; }
         .timeline-item::after { content: ''; position: absolute; width: 20px; height: 20px; right: auto; left: 10px; background-color: var(--primary); border: 4px solid var(--secondary); top: 15px; border-radius: 50%; z-index: 1; }
         .timeline-content { padding: 20px; background: var(--white); border-radius: 8px; box-shadow: 0 3px 6px rgba(0,0,0,0.05); }
+
+        /* --- Gallery Images Alignment Fix --- */
+        #gallery img {
+            width: 100%;
+            height: 250px; /* Keeps uniform boxes */
+            object-fit: contain; /* Shows 100% of photo without cropping */
+            background-color: #ffffff; /* Creates a white photo frame look */
+            border: 1px solid #e0d5c1;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            padding: 5px;
+        }
 
         /* --- Privacy Note --- */
         .privacy-note {
@@ -187,11 +190,7 @@
             .menu-toggle { display: block; }
             .hero h1 { font-size: 2rem; }
             .timeline::after { left: 20px; }
-            /* Hide embedded PDF on very small screens to force using the button */
-            .pdf-container { display: none; }
-            .mobile-pdf-notice { display: block !important; margin-bottom: 15px; color: var(--primary); font-weight: bold; }
         }
-        .mobile-pdf-notice { display: none; }
     </style>
 </head>
 <body>
@@ -214,7 +213,7 @@
 
     <section id="home" class="hero">
         <h1>Nostalgia 76-77 | SSLC Batch Reunion</h1>
-        <div class="ml-title">നോസ്റ്റാൾജിയ 76-77 | എസ്.എസ്.എൽ.സി ബാച്ച് സംഗമം</div>
+        <div class="ml-title">നോസ്റ്റാൾജിയ 76-77 | എസ്.എസ്.എൽ.സി ബാച്ച് SKMJ High School</div>
         
         <p class="motto">"Connecting together for friendship, social service, and shared joy among all members, without bias or distinction."</p>
         <p class="motto-ml">"എല്ലാ അംഗങ്ങളെയും വലുതോ ചെറുതോ എന്ന വ്യത്യാസമില്ലാതെ, പക്ഷപാതമില്ലാതെ, സൗഹൃദത്തിനും സാമൂഹ്യസേവനത്തിനും പരസ്പര സന്തോഷത്തിനുമായി ഒരുമിച്ച് ബന്ധിപ്പിക്കുക."</p>
@@ -248,6 +247,18 @@
                 <li>എല്ലാ ബാച്ച് അംഗങ്ങൾക്കും ഒരു പൊതുവേദി സൃഷ്ടിക്കുക.</li>
             </ul>
         </div>
+
+        <div style="margin-top: 40px; background: #fdfaf6; padding: 25px; border-radius: 12px; border: 1px solid #e0d5c1; text-align: justify; box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
+            <h3 style="font-size: 1.2rem; color: var(--primary); margin-bottom: 15px; text-align: center;">
+                WhatsApp Group Ethics <br><span class="ml-text" style="font-size: 1.1rem; display: block; margin-top: 5px;">വാട്ട്സ്ആപ്പ് പെരുമാറ്റച്ചട്ടം</span>
+            </h3>
+            <p style="margin-bottom: 15px; font-size: 0.95rem; color: var(--text-main);">
+                We have a dedicated WhatsApp group for our batch members to stay connected. To ensure a peaceful and joyful environment for everyone, we strictly request all members to follow basic group ethics. Please refrain from posting any obscene, political, religious, or hurtful messages. Let us keep our platform focused on friendship and unity.
+            </p>
+            <p class="ml-text" style="font-size: 0.95rem; color: var(--text-main);">
+                നമ്മുടെ ബാച്ച് അംഗങ്ങൾക്ക് പരസ്പരം ബന്ധപ്പെടുന്നതിനായി ഒരു വാട്ട്സ്ആപ്പ് ഗ്രൂപ്പ് നിലവിലുണ്ട്. എല്ലാവർക്കും സന്തോഷകരമായ ഒരു അന്തരീക്ഷം ഉറപ്പാക്കാൻ, ഗ്രൂപ്പിലെ പെരുമാറ്റച്ചട്ടങ്ങൾ നിർബന്ധമായും പാലിക്കാൻ അഭ്യർത്ഥിക്കുന്നു. അശ്ലീലമായതോ, രാഷ്ട്രീയമോ മതപരമോ ആയ കാര്യങ്ങളോ, മറ്റുള്ളവരെ വേദനിപ്പിക്കുന്നതോ ആയ സന്ദേശങ്ങൾ ഗ്രൂപ്പിൽ പങ്കുവെക്കുന്നത് കർശനമായി ഒഴിവാക്കുക. നമ്മുടെ കൂട്ടായ്മ സൗഹൃദത്തിനും ഐക്യത്തിനും മാത്രമുള്ളതായിരിക്കട്ടെ.
+            </p>
+        </div>
     </section>
 
     <section id="about">
@@ -272,7 +283,7 @@
         </div>
         <div class="grid grid-3">
             <div class="card">
-                <div class="card-title"> Plato Pereira</div>
+                <div class="card-title"> Plato </div>
                 <div class="card-subtitle">President / പ്രസിഡന്റ്</div>
             </div>
             <div class="card">
@@ -290,6 +301,9 @@
             <p style="color: var(--text-main); font-size: 1rem;">
                 <strong>President:</strong> R Rajan  &nbsp;|&nbsp; <strong>Secretary:</strong> Joseph &nbsp;|&nbsp; <strong>Treasurer:</strong> Thankachan
             </p>
+            <div style="margin-top: 20px;">
+                <img src="photo5.jpg" alt="Previous Office Bearers" style="max-width: 100%; max-height: 400px; height: auto; border-radius: 8px; border: 3px solid var(--secondary); box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </div>
         </div>
     </section>
 
@@ -304,18 +318,24 @@
             <span class="ml-text" style="display:block; margin-top:5px; color:#856404;">അംഗങ്ങളുടെ മൊബൈൽ നമ്പറുകൾ സ്വകാര്യതയും സുരക്ഷയും കണക്കിലെടുത്ത് വെബ്സൈറ്റിൽ പ്രസിദ്ധീകരിക്കുന്നതല്ല.</span>
         </div>
 
-        <div style="text-align: center; margin-top: 30px;">
-            <p class="mobile-pdf-notice">Please click the button below to view the directory on your mobile device.</p>
-            
-            <div class="pdf-container">
-                <iframe src="members-directory.pdf" width="100%" height="600px" style="border: none;">
-                    This browser does not support PDFs. Please download the PDF to view it.
-                </iframe>
+        <div class="grid grid-2" style="margin-top: 40px;">
+            <div style="text-align: center; padding: 30px 20px; background: var(--white); border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee;">
+                <div style="font-size: 3rem; margin-bottom: 15px;">📱</div>
+                <h3 style="color: var(--primary); margin-bottom: 10px;">Active Group Members</h3>
+                <div class="ml-text" style="margin-bottom: 15px;">വാട്ട്സ്ആപ്പ് ഗ്രൂപ്പ് അംഗങ്ങൾ</div>
+                <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.5;">View the directory of our current, active WhatsApp group members.</p>
+                <a href="members-directory.pdf" target="_blank" class="btn-pdf" style="font-size: 1rem; padding: 12px 25px; border-radius: 30px;">
+                    📄 Open Active Directory
+                </a>
             </div>
-            
-            <div style="margin-top: 20px;">
-                <a href="members-directory.pdf" target="_blank" class="btn-pdf" style="font-size: 1.1rem; padding: 15px 30px;">
-                    📄 Open / Download Members Directory
+
+            <div style="text-align: center; padding: 30px 20px; background: var(--white); border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee;">
+                <div style="font-size: 3rem; margin-bottom: 15px;">🏫</div>
+                <h3 style="color: var(--primary); margin-bottom: 10px;">Complete 1977 Batch</h3>
+                <div class="ml-text" style="margin-bottom: 15px;">മുഴുവൻ ബാച്ച് അംഗങ്ങൾ</div>
+                <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.5;">View the historical registry of all our 1977 SSLC batchmates.</p>
+                <a href="full_list_sslc_1977.pdf" target="_blank" class="btn-pdf" style="font-size: 1rem; padding: 12px 25px; border-radius: 30px;">
+                    📄 Open Full Registry
                 </a>
             </div>
         </div>
@@ -343,6 +363,12 @@
         </div>
         
         <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <strong>Develop a website, mobile application</strong><br>
+                    <span class="ml-text">ഒരു വെബ്സൈറ്റ്, മൊബൈൽ ആപ്പ് വികസിപ്പിക്കുക.</span>
+                </div>
+            </div>
             <div class="timeline-item">
                 <div class="timeline-content">
                     <strong>Guruvandanam (Honoring Teachers)</strong><br>
@@ -385,6 +411,8 @@
             <img src="photo2.jpg" alt="Gallery Photo 2">
             <img src="photo3.jpg" alt="Gallery Photo 3">
             <img src="photo4.jpg" alt="Gallery Photo 4">
+            <img src="photo6.jpg" alt="Gallery Photo 6">
+            <img src="photo7.jpg" alt="Gallery Photo 7">
         </div>
     </section>
 
@@ -410,6 +438,15 @@
             var nav = document.getElementById("navLinks");
             nav.classList.toggle("active");
         }
+
+        // This new code automatically closes the mobile menu when any link is clicked
+        var navItems = document.querySelectorAll('.nav-links a');
+        navItems.forEach(function(item) {
+            item.addEventListener('click', function() {
+                var nav = document.getElementById("navLinks");
+                nav.classList.remove("active");
+            });
+        });
     </script>
-</body>
-</html>
+
+   
