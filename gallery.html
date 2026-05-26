@@ -209,17 +209,19 @@
 
     <div class="gallery-container">
         <div class="grid">
-            <div class="gallery-item"><img src="photo2.jpg" alt="Gallery Photo 2" onclick="openLightbox(this)"></div>
-            <div class="gallery-item"><img src="photo3.jpg" alt="Gallery Photo 3" onclick="openLightbox(this)"></div>
-            <div class="gallery-item"><img src="photo4.jpg" alt="Gallery Photo 4" onclick="openLightbox(this)"></div>
-            <div class="gallery-item"><img src="photo5.jpg" alt="Gallery Photo 5" onclick="openLightbox(this)"></div>
-            <div class="gallery-item"><img src="photo6.jpg" alt="Gallery Photo 6" onclick="openLightbox(this)"></div>
-            <div class="gallery-item"><img src="photo7.jpg" alt="Gallery Photo 7" onclick="openLightbox(this)"></div>
-            <div class="gallery-item"><img src="photo8.jpg" alt="Gallery Photo 8" onclick="openLightbox(this)"></div>
-            <div class="gallery-item"><img src="photo9.jpg" alt="Gallery Photo 9" onclick="openLightbox(this)"></div>
-            <div class="gallery-item"><img src="photo10.jpg" alt="Gallery Photo 10" onclick="openLightbox(this)"></div>
-            <div class="gallery-item"><img src="photo11.jpg" alt="Gallery Photo 11" onclick="openLightbox(this)"></div>
-            </div>
+            <script>
+            // Loop to pull photo2.jpg through photo35.jpg
+            for(let i = 2; i <= 35; i++) {
+                document.write(`
+                    <div class="gallery-item">
+                        <img src="photo${i}.jpg"
+                             alt="Gallery Photo ${i}"
+                             onclick="openLightbox(this)">
+                    </div>
+                `);
+            }
+            </script>
+        </div>
 
         <div class="back-btn-container">
             <a href="index.html" class="btn-back">⬅ Return to Main Website / പ്രധാന പേജിലേക്ക് മടങ്ങുക</a>
@@ -235,9 +237,9 @@
         <h2 style="color: var(--white); font-size: 1.8rem;">Nostalgia 76-77 Family</h2>
         <div class="ml-text" style="color:var(--white); margin-bottom: 25px; font-size: 1.2rem;">നോസ്റ്റാൾജിയ 76-77 കുടുംബം</div>
         <p>&copy; 2026. Designed for our Nostalgia 76-77 Alumni.</p>
-		<div style="margin-top: 30px; font-size: 0.85rem; color: #e0d5c1; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px;">
-    <p>Developed and maintained by Sankaranarayanan</p>
-</div>
+        <div style="margin-top: 30px; font-size: 0.85rem; color: #e0d5c1; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px;">
+            <p>Developed and maintained by Sankaranarayanan</p>
+        </div>
     </footer>
 
     <script>
